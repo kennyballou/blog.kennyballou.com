@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-05-25 Wed 02:35 -->
+<!-- 2022-05-25 Wed 13:36 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Git Resurrecting History</title>
@@ -315,7 +315,7 @@ for the JavaScript code in this tag.
 </ul>
 </li>
 <li><a href="#summary">Summary</a></li>
-<li><a href="#org79ee556">References</a></li>
+<li><a href="#orgba7f575">References</a></li>
 </ul>
 </div>
 </div>
@@ -331,8 +331,8 @@ resolve, especially so once the necessary tools are known.
 
 </div>
 
-<div id="outline-container-org09c6f31" class="outline-2">
-<h2 id="git-reflog"><a id="org09c6f31"></a><a id="ID-ec1715fd-6de5-4a13-99bd-ce638b7e6ff8"></a>Git Reflog</h2>
+<div id="outline-container-org1783bf7" class="outline-2">
+<h2 id="git-reflog"><a id="org1783bf7"></a><a id="ID-ec1715fd-6de5-4a13-99bd-ce638b7e6ff8"></a>Git Reflog</h2>
 <div class="outline-text-2" id="text-git-reflog">
 <blockquote>
 <p>
@@ -411,8 +411,8 @@ changes.
 </div>
 </div>
 
-<div id="outline-container-org46f1fd6" class="outline-2">
-<h2 id="git-fsck"><a id="org46f1fd6"></a><a id="ID-e6339a29-fb8c-4881-99d4-489999c87fcb"></a>Git Fsck</h2>
+<div id="outline-container-org26bb199" class="outline-2">
+<h2 id="git-fsck"><a id="org26bb199"></a><a id="ID-e6339a29-fb8c-4881-99d4-489999c87fcb"></a>Git Fsck</h2>
 <div class="outline-text-2" id="text-git-fsck">
 <p>
 <a href="https://www.kernel.org/pub/software/scm/git/docs/git-reflog.html"><code>git-reflog(1)</code></a> is a very useful tool, but, another way
@@ -516,8 +516,8 @@ resurrecting or even are in fact the objects we want to resurrect.
 </div>
 </div>
 
-<div id="outline-container-org59d40d2" class="outline-2">
-<h2 id="resurrection-example"><a id="org59d40d2"></a><a id="ID-758cdfb2-3623-48f6-b0de-bac2d9446207"></a>Resurrection Example</h2>
+<div id="outline-container-org6864115" class="outline-2">
+<h2 id="resurrection-example"><a id="org6864115"></a><a id="ID-758cdfb2-3623-48f6-b0de-bac2d9446207"></a>Resurrection Example</h2>
 <div class="outline-text-2" id="text-resurrection-example">
 <p>
 Now that we have some tools, let's examine a situation where a change to the
@@ -605,8 +605,8 @@ examination.  However, we likely lost the commit hash of the branch.
 </p>
 </div>
 
-<div id="outline-container-org6d9dab7" class="outline-3">
-<h3 id="solution"><a id="org6d9dab7"></a><a id="ID-da233182-efc0-4e88-a104-99016cf69880"></a>Solution</h3>
+<div id="outline-container-org48c7884" class="outline-3">
+<h3 id="solution"><a id="org48c7884"></a><a id="ID-da233182-efc0-4e88-a104-99016cf69880"></a>Solution</h3>
 <div class="outline-text-3" id="text-solution">
 <p>
 If we take a quick look at our <code>git-fsck</code> output, we might see something that
@@ -667,8 +667,8 @@ or recreate the reference for later inspection.
 </div>
 </div>
 
-<div id="outline-container-org06a5f01" class="outline-2">
-<h2 id="another-resurrection-example"><a id="org06a5f01"></a><a id="ID-a24032fc-0ed8-4906-a7da-b2d33b42f121"></a>Another Resurrection Example</h2>
+<div id="outline-container-org0d247ba" class="outline-2">
+<h2 id="another-resurrection-example"><a id="org0d247ba"></a><a id="ID-a24032fc-0ed8-4906-a7da-b2d33b42f121"></a>Another Resurrection Example</h2>
 <div class="outline-text-2" id="text-another-resurrection-example">
 <p>
 For another example, let's examine when we create a branch and change the
@@ -724,7 +724,7 @@ Furthermore, here is an image that describes the state of the repository.
 
 <figure>
 
-<div id="org6502a50" class="figure">
+<div id="org74707a2" class="figure">
 <p><object type="image/svg+xml" data="file:///media/git-repo-state-1.svg" class="org-svg">
 Sorry, your browser does not support SVG.</object>
 </p>
@@ -762,7 +762,7 @@ Thusly, our repository should look similar to the following image:
 
 <figure>
 
-<div id="org53c9c3c" class="figure">
+<div id="orgbde9913" class="figure">
 <p><object type="image/svg+xml" data="file:///media/git-repo-state-2.svg" class="org-svg">
 Sorry, your browser does not support SVG.</object>
 </p>
@@ -787,7 +787,7 @@ This should result in a repository that looks like the following:
 
 <figure>
 
-<div id="orga536241" class="figure">
+<div id="orgd24367e" class="figure">
 <p><object type="image/svg+xml" data="file:///media/git-repo-state-3.svg" class="org-svg">
 Sorry, your browser does not support SVG.</object>
 </p>
@@ -846,8 +846,8 @@ and change the history of this branch.  This is an important assumption in
 </blockquote>
 </div>
 
-<div id="outline-container-org908a768" class="outline-3">
-<h3 id="solutions"><a id="org908a768"></a><a id="ID-1013e680-6863-4823-8d4f-44da715069e5"></a>Solutions</h3>
+<div id="outline-container-orgd57fdfc" class="outline-3">
+<h3 id="solutions"><a id="orgd57fdfc"></a><a id="ID-1013e680-6863-4823-8d4f-44da715069e5"></a>Solutions</h3>
 <div class="outline-text-3" id="text-solutions">
 <p>
 One way we can fix this is to simply not care.  But that's not what we are
@@ -919,7 +919,7 @@ Perfect, we are back to the state of the branch as seen in the following image:
 
 <figure>
 
-<div id="org81ac2dd" class="figure">
+<div id="orgde7ceaa" class="figure">
 <p><object type="image/svg+xml" data="file:///media/git-repo-state-2.svg" class="org-svg">
 Sorry, your browser does not support SVG.</object>
 </p>
@@ -958,7 +958,7 @@ Afterwards, our repository will look like the following figure:
 
 <figure>
 
-<div id="orgc4e3d01" class="figure">
+<div id="orgbe2e568" class="figure">
 <p><object type="image/svg+xml" data="file:///media/git-repo-state-4.svg" class="org-svg">
 Sorry, your browser does not support SVG.</object>
 </p>
@@ -992,7 +992,7 @@ Afterwards, our repository will look like the following figure:
 
 <figure>
 
-<div id="org44bba4b" class="figure">
+<div id="org02e4dda" class="figure">
 <p><object type="image/svg+xml" data="file:///media/git-repo-state-5.svg" class="org-svg">
 Sorry, your browser does not support SVG.</object>
 </p>
@@ -1002,8 +1002,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-org2c7b7ef" class="outline-2">
-<h2 id="summary"><a id="org2c7b7ef"></a><a id="ID-89a74054-7783-4fa6-beb9-db9b97439196"></a>Summary</h2>
+<div id="outline-container-orga707f35" class="outline-2">
+<h2 id="summary"><a id="orga707f35"></a><a id="ID-89a74054-7783-4fa6-beb9-db9b97439196"></a>Summary</h2>
 <div class="outline-text-2" id="text-summary">
 <p>
 The best way to fix Git repository history is not to make mistakes in the first
@@ -1020,9 +1020,9 @@ when our repository eventually melts down.
 </div>
 </div>
 
-<div id="outline-container-org79ee556" class="outline-2">
-<h2 id="org79ee556"><a id="ID-b95dc6ac-6a3e-4f60-83fd-c6b598041bb4"></a>References</h2>
-<div class="outline-text-2" id="text-org79ee556">
+<div id="outline-container-orgba7f575" class="outline-2">
+<h2 id="orgba7f575"><a id="ID-b95dc6ac-6a3e-4f60-83fd-c6b598041bb4"></a>References</h2>
+<div class="outline-text-2" id="text-orgba7f575">
 <ul class="org-ul">
 <li><a href="https://www.kernel.org/pub/software/scm/git/docs/git-reflog.html"><code>git-reflog(1)</code></a></li>
 

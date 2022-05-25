@@ -6,10 +6,10 @@
 <!-- 2022-05-25 Wed 13:36 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Vim Tips 2015-05-07</title>
+<title>Org-Mode Publishing Static Site Generation</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="kb" />
-<meta name="description" content="Vim Tips: Visual Mode and Macros"
+<meta name="description" content="New New Static site generation with Org-Mode Publishing"
  />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
@@ -297,258 +297,218 @@ for the JavaScript code in this tag.
 </nav>
 </header>
 <div id="main">
-<h1 class="title">Vim Tips 2015-05-07</h1>
+<h1 class="title">Org-Mode Publishing Static Site Generation</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org4d2c223">Visual Mode</a>
+<li><a href="#org51c6acc">Motivation</a></li>
+<li><a href="#orgf0d09bd">Some Emacs Lisp</a>
 <ul>
-<li><a href="#orgdb91d16">Visual Mode Basics</a></li>
-<li><a href="#orgc8e9812">Some Examples</a></li>
+<li><a href="#orge0e78d9">Preamble and Postamble</a></li>
+<li><a href="#org10953a7">Simple CSS Preamble + Postamble</a></li>
+<li><a href="#orge028cb5"><code>ox-rss</code></a></li>
 </ul>
 </li>
-<li><a href="#org52d039d">Macros</a>
+<li><a href="#org49d01b5">Building and Publishing</a>
 <ul>
-<li><a href="#org6713695">Macro Basics</a></li>
-<li><a href="#orgac93c12">Some Examples</a></li>
+<li><a href="#orgd86a1f7">Make</a></li>
+<li><a href="#org5551bbd">GitHub Actions</a></li>
 </ul>
 </li>
+<li><a href="#orgb6048ab">Parting Thoughts</a></li>
 </ul>
 </div>
 </div>
-<div class="PREVIEW">
+<div class="preview">
 <p>
-Many Vim users may have, accidentally or not, discovered the dot (<code>.</code>) command
-in Vim.  It's a main stay for a lot of Vim users and is clearly one of those
-actions that should be in more editors.  Except when it is the wrong action for
-the job.
+<a href="https://kennyballou.com/blog/2019/03/static-site-generation/index.html">Previously</a>, I discussed changing the generation of this site.  Specifically,
+using <a href="https://orgmode.org/">Org-Mode</a> files with <a href="https://pandoc.org/">Pandoc</a> and some <a href="https://www.gnu.org/software/bash/">Bash</a> scripts to generate the site.
+However, today, I have changed the site again.  Now, the site is generated
+entirely using <a href="https://orgmode.org/">Org-Mode</a>.
 </p>
 
 </div>
 
 <p>
-More often than not, the visual selection mode and one-off macros are a better
-choice.
+The Intertubes overflow with <a href="https://systemcrafters.net/publishing-websites-with-org-mode/automated-site-publishing/">previous</a> <a href="https://ogbe.net/blog/blogging_with_org.html">posts</a> about static site generation or
+blogging with only <a href="https://orgmode.org/">Org Mode</a>.  I focus mainly on a few details to make things
+work here.  But first, motivation.  Why change.
 </p>
 
-<div id="outline-container-org4d2c223" class="outline-2">
-<h2 id="org4d2c223"><a id="ID-3db6b4a7-d2b0-43e5-ac16-e2f888280b42"></a>Visual Mode</h2>
-<div class="outline-text-2" id="text-org4d2c223">
+<div id="outline-container-org51c6acc" class="outline-2">
+<h2 id="org51c6acc"><a id="ID-acce0d8b-ba0b-4a41-b602-bf5fe85f15f6"></a>Motivation</h2>
+<div class="outline-text-2" id="text-org51c6acc">
 <p>
-I won't go into all of the cool things that can be accomplished with Vim's
-visual mode, but I will showcase a few examples where the visual editor is
-clearly a better choice than the dot (<code>.</code>).
+I wanted to transition the blog into a more general purpose site and I felt my
+hand-rolled generation would not be adequate.  I did not want to go back to
+bigger tools like <a href="https://gohugo.io/">Hugo</a> and friends.  While these would certainly be capable,
+remaining in <a href="https://orgmode.org/">Org</a> and <a href="https://gnu.org/software/emacs">Emacs</a> seemed like the "winning" move.
 </p>
 
 <p>
-Visual mode offers, in essence, a multi-line cursor for which you can do a lot
-of changes, quickly.
+I also switched from using my own <a href="https://ethanschoonover.com/solarized/">Solarized</a> CSS, to <a href="https://simplecss.org/">Simple CSS</a>.
 </p>
-</div>
 
-<div id="outline-container-orgdb91d16" class="outline-3">
-<h3 id="orgdb91d16"><a id="ID-ead6e212-0699-42a4-a8cd-3e837d5749e4"></a>Visual Mode Basics</h3>
-<div class="outline-text-3" id="text-orgdb91d16">
 <p>
-To enter visual mode, it is as simple as pressing <code>^v</code> or <code>ctrl-v</code>.  Next you
-will want to select what you want to change with your typical movement commands
-(<code>h</code>, <code>j</code>, <code>k</code>, <code>l</code>, and of course <code>w</code>, <code>e</code> and all the rest).  Finally, you
-finish with the action: <code>I</code> if you want to insert before the selection, <code>A</code> if
-you want to append after the selection, <code>C</code> if you want to change the
-selection, and <code>d</code>, <code>D</code>, <code>x</code> if you want to remove the selection, just to name
-a few.
+A nice benefit of this change is automatic table of contents generated for each
+post and easily disabled for pages where table of contents do not make sense.
+Another benefit was learning that many of the links in the previous posts were
+broken.  <a href="https://orgmode.org/manual/Publishing.html">Publishing</a> does not generate sites with broken links.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgc8e9812" class="outline-3">
-<h3 id="orgc8e9812"><a id="ID-2e7759d3-d8d5-4d62-ae93-24273f389c55"></a>Some Examples</h3>
-<div class="outline-text-3" id="text-orgc8e9812">
+<div id="outline-container-orgf0d09bd" class="outline-2">
+<h2 id="orgf0d09bd"><a id="ID-6e176d27-2076-414a-bf13-a85b288575e0"></a>Some Emacs Lisp</h2>
+<div class="outline-text-2" id="text-orgf0d09bd">
 <p>
-For (a bad) example, if you need to comment out a contiguous set of lines, you
-can easily accomplish this with the visual mode.
-</p>
-
-
-<div class="embed-video">
-<video controls="controls" width="90%" height="90%">
-<source src="/media/videos/comment.ogg" type="video/ogg"/>
-<p>
-Your browser does not support the video tag.
-</p>
-</video>
-
-</div>
-
-<p>
-A related example to prefixing is indentation changes, I often use the visual
-mode to fix code indentation when changing block-level indentation or when
-copying code into a markdown file.
-</p>
-
-<div class="embed-video">
-<video controls="controls" width="90%" height="90%">
-<source src="/media/videos/indent.ogg" type="video/ogg"/>
-<p>
-Your browser does not support the video tag.
-</p>
-</video>
-
-</div>
-
-<p>
-As another example, if you need to change a single word in multiple columns,
-visual mode will make easy work of this (especially when the columns are
-aligned, if not see macros below or <a href="https://kennyballou.com/blog/2015/03/vim-tips-2015-03-17/">substitution
-ranges</a> from the previous tip).
-</p>
-
-<div class="embed-video">
-<video controls="controls" width="90%" height="90%">
-<source src="/media/videos/cw.ogg" type="video/ogg"/>
-<p>
-Your browser does not support the video tag.
-</p>
-</video>
-
-</div>
-
-<p>
-For more information on Visual Mode, you can check Vim's
-<a href="http://vimdoc.sourceforge.net/htmldoc/visual.html">visual</a> help document.
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org52d039d" class="outline-2">
-<h2 id="org52d039d"><a id="ID-0554e90c-f09e-4bd0-930c-eab63b312a36"></a>Macros</h2>
-<div class="outline-text-2" id="text-org52d039d">
-<p>
-For when visual mode may not be enough or when the change is repetitive in
-operations but not in columns or what have you, it's time to bust out the
-macros.  Vim macros are easily available for use you can use all the registers
-to record and store each macro.
+Defining an <a href="https://orgmode.org/">Org</a> project is fairly straightforward, but some parameters to the
+publishing projects depend on the circumstance.
 </p>
 </div>
 
-<div id="outline-container-org6713695" class="outline-3">
-<h3 id="org6713695"><a id="ID-308ae45d-1e37-48cc-92cc-6238a5ea16db"></a>Macro Basics</h3>
-<div class="outline-text-3" id="text-org6713695">
+<div id="outline-container-orge0e78d9" class="outline-3">
+<h3 id="orge0e78d9"><a id="ID-b056b1ae-2d91-4be5-8d31-578eea0fcdca"></a>Preamble and Postamble</h3>
+<div class="outline-text-3" id="text-orge0e78d9">
 <p>
-To record a macro, it's as simple as <code>q&lt;register-label&gt;&lt;commands&gt;q</code>.  That is,
-press <code>q</code>, select a register (a-z1-0), enter your commands as if you were using
-Vim normally, and finally <code>q</code> again to finish.  Once your macro is recorded,
-you can use it with <code>@&lt;register-label&gt;</code>.  And, like most Vim commands, you can
-attach a repetition to it: <code>&lt;n&gt;@&lt;register-label&gt;</code> where <code>&lt;n&gt;</code> is the number of
-times to repeat the command.
+To handle the headers and footers of the site, I defined the following function
+to read in, now modified versions of, the previous header and footer HTML
+content.
 </p>
 
-<p>
-You can also replay the last macro with <code>@@</code>.
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgac93c12" class="outline-3">
-<h3 id="orgac93c12"><a id="ID-44dd7a43-f124-4d50-9667-6854dd2ba3d2"></a>Some Examples</h3>
-<div class="outline-text-3" id="text-orgac93c12">
-<p>
-As a simplistic example, we can use a macro to convert it into, say, JSON (this
-example is clearly taken from the <a href="http://vim.wikia.com/wiki/Macros">Vim Wikia</a>).
-</p>
-
-<p>
-Let's say we have the following data:
-</p>
-
-<pre class="example">
-one     first example
-two     second example
-three   third example
-four    fourth example
+<div class="org-src-container">
+<pre class="src src-elisp">(<span style="font-weight: bold;">defun</span> <span style="font-weight: bold;">read-template</span> (filename)
+  <span style="font-style: italic;">"Read template contents from FILENAME."</span>
+  (<span style="font-weight: bold;">with-temp-buffer</span>
+    (insert-file-contents filename)
+    (buffer-string)))
 </pre>
+</div>
 
 <p>
-And we want to change it to the following:
+Then, this function can be used to load in the content of the template files:
 </p>
 
-<pre class="example">
-data = {
-    'one': 'first example',
-    'two': 'second example',
-    'three': 'third example',
-    'four': 'fourth example',
-}
+<div class="org-src-container">
+<pre class="src src-elisp">(<span style="font-weight: bold;">setq</span> head-extra-template (read-template <span style="font-style: italic;">"templates/html_header.html"</span>))
+(<span style="font-weight: bold;">setq</span> header-template (read-template <span style="font-style: italic;">"templates/html_sub_header.html"</span>))
+(<span style="font-weight: bold;">setq</span> header-nav (read-template <span style="font-style: italic;">"templates/nav.html"</span>))
+(<span style="font-weight: bold;">setq</span> footer-template (read-template <span style="font-style: italic;">"templates/html_footer.html"</span>))
 </pre>
+</div>
 
 <p>
-We can do this by performing the following:
+Then for each project, the following keys are set:
 </p>
 
-<p>
-First, we want to start recording our macro.  While the cursor is under the 'o'
-of 'one', we will press <code>qd</code> to record our macro to the <code>d</code> register.
-</p>
-
-<p>
-Next, we will want to change the tabbing by performing a substitution:
-</p>
-
-<pre class="example">
-:s/\s\+/': '
+<div class="org-src-container">
+<pre class="src src-elisp"><span style="font-weight: bold;">:html-head-extra</span> head-extra-template
+<span style="font-weight: bold;">:html-preamble</span> header-nav
+<span style="font-weight: bold;">:html-postamble</span> footer-template
 </pre>
-
-<p>
-Then, we will insert our first tick with:
-</p>
-
-<pre class="example">
-I'
-</pre>
-
-<p>
-And append the last tick and comma with:
-</p>
-
-<pre class="example">
-A',
-</pre>
-
-<p>
-Before we finish recording, one of the more important operations of making
-macros repeatable is moving the cursor to the next line and putting it into the
-correct position for the next execution.  Therefore, move the cursor the
-begging of the line and move down one line:
-</p>
-
-<pre class="example">
-0j
-</pre>
-
-<p>
-Finally, press <code>q</code> to finish recording.
-</p>
-
-<p>
-We should now be able to press <code>3@d</code> and watch as the rest of the lines change.
-</p>
-
-<p>
-To finish up the example, we'll manually enter <code>data = {</code> and the tailing <code>}</code>.
-</p>
-
-<div class="embed-video">
-<video controls="controls" width="90%" height="90%">
-<source src="/media/videos/macros.ogg" type="video/ogg" />
-<p>
-Your browser does not support the video tag.
-</p>
-</video>
-
 </div>
 </div>
+</div>
+
+<div id="outline-container-org10953a7" class="outline-3">
+<h3 id="org10953a7"><a id="ID-2179da31-6405-4ab4-84e8-f218abc6f6a2"></a>Simple CSS Preamble + Postamble</h3>
+<div class="outline-text-3" id="text-org10953a7">
+<p>
+To get the preamble and postamble to be styled right by <a href="https://simplecss.org/">SimpleCSS</a>, the
+following keys were necessary:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp"><span style="font-weight: bold;">:html-divs</span> '((preamble <span style="font-style: italic;">"header"</span> <span style="font-style: italic;">""</span>)
+             (content <span style="font-style: italic;">"div"</span> <span style="font-style: italic;">"main"</span>)
+             (postamble <span style="font-style: italic;">"footer"</span> <span style="font-style: italic;">""</span>))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge028cb5" class="outline-3">
+<h3 id="orge028cb5"><a id="ID-dd218b6b-ff74-4b5c-a9d2-75024203102c"></a><code>ox-rss</code></h3>
+<div class="outline-text-3" id="text-orge028cb5">
+<p>
+To publish the RSS feed, I needed to copy the <a href="https://github.com/kennyballou/kennyballou.github.io/blob/31878715d1f29ab9c95c31b9d9d713db74dabfba/lisp/ox-rss.el"><code>ox-rss.el</code></a> file wholesale so that
+it was accessible during the automated publishing.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org49d01b5" class="outline-2">
+<h2 id="org49d01b5"><a id="ID-3f319213-17dd-4fb4-ba22-272ee1e52077"></a>Building and Publishing</h2>
+<div class="outline-text-2" id="text-org49d01b5">
+</div>
+
+<div id="outline-container-orgd86a1f7" class="outline-3">
+<h3 id="orgd86a1f7"><a id="ID-36a872f9-1de5-4955-97b8-51e1192a3eb3"></a>Make</h3>
+<div class="outline-text-3" id="text-orgd86a1f7">
+<p>
+With the <code>build-site.el</code> file defined, the <a href="https://www.gnu.org/software/make/">Make target</a> is quite simple.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-GNUMakefile">.PHONY: org-publish
+org-publish:
+	emacs -Q --script ./build-site.el
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5551bbd" class="outline-3">
+<h3 id="org5551bbd"><a id="ID-02aa27f6-4d0d-43e1-b443-dcc6ae4839bb"></a>GitHub Actions</h3>
+<div class="outline-text-3" id="text-org5551bbd">
+<p>
+In an earlier <a href="https://kennyballou.com/blog/2020/02/blog-deploy-code-commit-and-build/index.html">post</a>, I described using <a href="https://aws.amazon.com/codebuild/">AWS CodeBuild</a> to automatically build site
+content and copy the files to <a href="https://aws.amazon.com/s3">S3</a>.  However, after one timed-out build attempted
+to put 15 GB of useless files into my <a href="https://aws.amazon.com/s3">S3</a> bucket and caused over 400,000
+requests against the bucket, it was time to try something new.
+</p>
+
+<p>
+While hosting with <a href="https://aws.amazon.com/s3">S3</a> and <a href="https://aws.amazon.com/cloudfront">CloudFront</a> is cheap, hosting with <a href="https://pages.github.com/">GitHub Pages</a> is
+free.  More than that, if I ever write something people are interested in, I do
+not need to worry about my <a href="https://aws.amazon.com/cloudfront">CloudFront</a> costs ballooning out of control.
+</p>
+
+<blockquote>
+<p>
+Of course, this is not a real worry.  CloudFront has only cost about $0.01 for
+a while, sometimes less.
+</p>
+</blockquote>
+
+<p>
+The process of setting this up is straightforward and more up-to-date
+documentation is available from <a href="https://github.com/">GitHub</a>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb6048ab" class="outline-2">
+<h2 id="orgb6048ab"><a id="ID-c5143824-6017-4a2f-98ea-094d5789a104"></a>Parting Thoughts</h2>
+<div class="outline-text-2" id="text-orgb6048ab">
+<p>
+Nothing is perfect, but overall, I am pleased with the result of switching to
+using <a href="https://orgmode.org/">Org Mode</a> for publishing.  There exists a learning curve&#x2013; as with all
+things&#x2013; however, not needing to develop and maintain the publishing scripts to
+the degree the custom rolled solution required is a relief.  It may require
+<i>some</i> code to develop a new section or something else.  But not nearly to the
+degree the old method required.
+</p>
+
+<p>
+Certainly, changing the hosting was not intended.  I started the publishing
+change with the intent that it would still be hosted with <a href="https://aws.amazon.com/cloudfront">AWS CloudFront</a> and
+<a href="https://aws.amazon.com/s3">AWS S3</a>.  Unfortunately, the build issues described above and my own second
+guessing the rationale for hosting with <a href="https://aws.amazon.com/">AWS</a> persuaded me to switch.
+</p>
 </div>
 </div>
 </div>
