@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-04-11 Mon 15:53 -->
+<!-- 2022-05-25 Wed 01:22 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Art of Manually Editing Hunks</title>
@@ -302,9 +302,9 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orga09afb8">Short Introduction to Unified Diff</a></li>
-<li><a href="#org1567a8e">Motivation</a></li>
-<li><a href="#org80ef1bc">Hunk Editing Example</a></li>
+<li><a href="#org762cf07">Short Introduction to Unified Diff</a></li>
+<li><a href="#org2c372c8">Motivation</a></li>
+<li><a href="#org673cf6f">Hunk Editing Example</a></li>
 </ul>
 </div>
 </div>
@@ -325,9 +325,9 @@ or <a href="https://www.kernel.org/pub/software/scm/git/docs/git-diff.html">git-
 <code>vimdiff</code>, etc.
 </p>
 
-<div id="outline-container-orga09afb8" class="outline-2">
-<h2 id="orga09afb8"><a id="ID-bdc2a07c-813b-481f-8e01-f998c7f9b0d8"></a>Short Introduction to Unified Diff</h2>
-<div class="outline-text-2" id="text-orga09afb8">
+<div id="outline-container-org762cf07" class="outline-2">
+<h2 id="org762cf07"><a id="ID-bdc2a07c-813b-481f-8e01-f998c7f9b0d8"></a>Short Introduction to Unified Diff</h2>
+<div class="outline-text-2" id="text-org762cf07">
 <p>
 A unified diff may look something similar to (freely copied from the
 <code>diffutils</code> manual):
@@ -401,9 +401,9 @@ applied.
 </div>
 </div>
 
-<div id="outline-container-org1567a8e" class="outline-2">
-<h2 id="org1567a8e"><a id="ID-30693136-3c1d-4322-90b7-7840d15c461f"></a>Motivation</h2>
-<div class="outline-text-2" id="text-org1567a8e">
+<div id="outline-container-org2c372c8" class="outline-2">
+<h2 id="org2c372c8"><a id="ID-30693136-3c1d-4322-90b7-7840d15c461f"></a>Motivation</h2>
+<div class="outline-text-2" id="text-org2c372c8">
 <p>
 What might be the motivation for even wanting to edit hunk files? The biggest I
 see is when using <code>git-add --patch</code>.  Particularly when the changes run
@@ -435,9 +435,9 @@ no changes are lost.
 </div>
 </div>
 
-<div id="outline-container-org80ef1bc" class="outline-2">
-<h2 id="org80ef1bc"><a id="ID-2da2b0aa-154b-4652-9fd8-aa282bb5ec7f"></a>Hunk Editing Example</h2>
-<div class="outline-text-2" id="text-org80ef1bc">
+<div id="outline-container-org673cf6f" class="outline-2">
+<h2 id="org673cf6f"><a id="ID-2da2b0aa-154b-4652-9fd8-aa282bb5ec7f"></a>Hunk Editing Example</h2>
+<div class="outline-text-2" id="text-org673cf6f">
 <p>
 Let's walk through an example of staging some changes, and manually editing a
 hunk to stage them into the patches we want.
