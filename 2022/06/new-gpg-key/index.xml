@@ -9,26 +9,27 @@
      xmlns:georss="http://www.georss.org/georss"
      xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
      xmlns:media="http://search.yahoo.com/mrss/"><channel>
-  <title>(Vim Tips 2015-03-17)</title>
+  <title>(GPG Key Transition)</title>
   <atom:link href="https://kennyballou.com/index.xml" rel="self" type="application/rss+xml" />
   <link>https://kennyballou.com</link>
-  <description><![CDATA[First vim tip post of a series of unknown size]]></description>
+  <description><![CDATA[]]></description>
   <language>en</language>
-  <pubDate>Wed, 22 Jun 2022 23:06:17 +0000</pubDate>
-  <lastBuildDate>Wed, 22 Jun 2022 23:06:17 +0000</lastBuildDate>
+  <pubDate>Wed, 22 Jun 2022 23:06:24 +0000</pubDate>
+  <lastBuildDate>Wed, 22 Jun 2022 23:06:24 +0000</lastBuildDate>
   <generator>Emacs 26.3 Org-mode 9.1.9</generator>
   <webMaster>kb@devnulllabs.io (kb)</webMaster>
   <image>
     <url>http://orgmode.org/img/org-mode-unicorn-logo.png</url>
-    <title>(Vim Tips 2015-03-17)</title>
+    <title>(GPG Key Transition)</title>
     <link>https://kennyballou.com</link>
   </image>
 
   <div class="PREVIEW">
     <p>
-      This is the start of a series of posts about better Vim usage.  It's yet to be
-      determined how often and how frequent this will run, but expect more than just
-      this first post.
+      Once again, it is time to announce a new GPG key.  This document is signed with
+      the old and new key to establish authenticity.  However, I forgot the password
+      for the master key, so I cannot certify the new key with the old key.  Please
+      use the new key.
     </p>
 
   </div>
