@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-01-13 Fri 23:46 -->
+<!-- 2023-04-25 Tue 05:31 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>(New) Static Site Generation</title>
@@ -290,10 +290,8 @@ for the JavaScript code in this tag.
      rel="noopener noreferrer">
     <i class="fade fab fa-linkedin-in fa-1x"></i>
   </a>
-  <a href="https://www.buymeacoffee.com/kennyballou"
-     target="_blank"
-     rel="noopener noreferrer">
-    <i class="fade fas fa-mug-hot fa-1x"></i>
+  <a href="/support.html">
+    <i class="fade fas fa-heart fa-1x"></i>
   </a>
   <a href="/resume.pdf"
      target="_blank">
@@ -315,17 +313,17 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org8d93b33">Motivation</a></li>
-<li><a href="#orgf698f03">High-Level Implementation</a></li>
-<li><a href="#orgdb7e53e">Detailed Implementation</a>
+<li><a href="#orge89c363">Motivation</a></li>
+<li><a href="#orgdf37b68">High-Level Implementation</a></li>
+<li><a href="#orgc04f47c">Detailed Implementation</a>
 <ul>
-<li><a href="#orgf35c5ef">Post Content Generation</a></li>
-<li><a href="#org2d8d628">Summary Page Generation</a></li>
-<li><a href="#org9754a04">RSS/XML Generation</a></li>
+<li><a href="#orgd6954c8">Post Content Generation</a></li>
+<li><a href="#org511d9f6">Summary Page Generation</a></li>
+<li><a href="#org032128d">RSS/XML Generation</a></li>
 </ul>
 </li>
-<li><a href="#orgd9af7b2">Future Work</a></li>
-<li><a href="#orgba58f65">Parting Thoughts</a></li>
+<li><a href="#org626df5d">Future Work</a></li>
+<li><a href="#orgc82a7ff">Parting Thoughts</a></li>
 </ul>
 </div>
 </div>
@@ -345,9 +343,9 @@ format and changing the generation process into a completely custom set of
 scripts.
 </p>
 
-<div id="outline-container-org8d93b33" class="outline-2">
-<h2 id="org8d93b33">Motivation</h2>
-<div class="outline-text-2" id="text-org8d93b33">
+<div id="outline-container-orge89c363" class="outline-2">
+<h2 id="orge89c363">Motivation</h2>
+<div class="outline-text-2" id="text-orge89c363">
 <p>
 When I first set down to build a blog 5 years ago, I had a pretty basic set of
 requirements.
@@ -434,9 +432,9 @@ invocations to <a href="https://pandoc.org">Pandoc</a>.
 </div>
 </div>
 
-<div id="outline-container-orgf698f03" class="outline-2">
-<h2 id="orgf698f03">High-Level Implementation</h2>
-<div class="outline-text-2" id="text-orgf698f03">
+<div id="outline-container-orgdf37b68" class="outline-2">
+<h2 id="orgdf37b68">High-Level Implementation</h2>
+<div class="outline-text-2" id="text-orgdf37b68">
 <p>
 The core of the implementation of the new site generation is blog posts written
 in <a href="https://org-mode.org">Org-mode</a>, processed by several shell scripts, using
@@ -464,9 +462,9 @@ the new version to break existing links.
 </div>
 </div>
 
-<div id="outline-container-orgdb7e53e" class="outline-2">
-<h2 id="orgdb7e53e">Detailed Implementation</h2>
-<div class="outline-text-2" id="text-orgdb7e53e">
+<div id="outline-container-orgc04f47c" class="outline-2">
+<h2 id="orgc04f47c">Detailed Implementation</h2>
+<div class="outline-text-2" id="text-orgc04f47c">
 <p>
 The easy part is generating each post.  This is simply an <code>index.html</code> in the
 correct folder.  The majority of the complexities stem from the summaries and
@@ -474,9 +472,9 @@ main <code>index</code> page.
 </p>
 </div>
 
-<div id="outline-container-orgf35c5ef" class="outline-3">
-<h3 id="orgf35c5ef">Post Content Generation</h3>
-<div class="outline-text-3" id="text-orgf35c5ef">
+<div id="outline-container-orgd6954c8" class="outline-3">
+<h3 id="orgd6954c8">Post Content Generation</h3>
+<div class="outline-text-3" id="text-orgd6954c8">
 <p>
 To generate a blog post's <code>index.html</code> page, we consider the following <code>make</code>
 target:
@@ -575,9 +573,9 @@ otherwise largely duplicated content.
 </div>
 </div>
 
-<div id="outline-container-org2d8d628" class="outline-3">
-<h3 id="org2d8d628">Summary Page Generation</h3>
-<div class="outline-text-3" id="text-org2d8d628">
+<div id="outline-container-org511d9f6" class="outline-3">
+<h3 id="org511d9f6">Summary Page Generation</h3>
+<div class="outline-text-3" id="text-org511d9f6">
 <p>
 The summary page is a bit more involved to generate.  A few questions had to be
 answered before it was possible: how to generate the summary text? And how
@@ -714,9 +712,9 @@ post summaries onto the <code>index.html</code> page.
 </div>
 </div>
 
-<div id="outline-container-org9754a04" class="outline-3">
-<h3 id="org9754a04">RSS/XML Generation</h3>
-<div class="outline-text-3" id="text-org9754a04">
+<div id="outline-container-org032128d" class="outline-3">
+<h3 id="org032128d">RSS/XML Generation</h3>
+<div class="outline-text-3" id="text-org032128d">
 <p>
 I also wanted to keep the RSS/XML feeds going.  However, as it turns out,
 generating the RSS feed was achieved by performing essentially the same steps
@@ -726,9 +724,9 @@ used for generating the summary <code>index.html</code> page.
 </div>
 </div>
 
-<div id="outline-container-orgd9af7b2" class="outline-2">
-<h2 id="orgd9af7b2">Future Work</h2>
-<div class="outline-text-2" id="text-orgd9af7b2">
+<div id="outline-container-org626df5d" class="outline-2">
+<h2 id="org626df5d">Future Work</h2>
+<div class="outline-text-2" id="text-org626df5d">
 <p>
 There is a fairly obvious limitation of the summary page generation, but only
 really obvious if I write more content.  There was and is no current archive
@@ -740,9 +738,9 @@ is generated using <a href="https://gohugo.io/">Hugo</a> or generated via the ne
 </div>
 </div>
 
-<div id="outline-container-orgba58f65" class="outline-2">
-<h2 id="orgba58f65">Parting Thoughts</h2>
-<div class="outline-text-2" id="text-orgba58f65">
+<div id="outline-container-orgc82a7ff" class="outline-2">
+<h2 id="orgc82a7ff">Parting Thoughts</h2>
+<div class="outline-text-2" id="text-orgc82a7ff">
 <p>
 Like many projects, this was started because I personally was dissatisfied with
 the current state of options.  However, that said, I did not write these

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-01-13 Fri 23:46 -->
+<!-- 2023-04-25 Tue 05:31 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Git Packfiles</title>
@@ -312,10 +312,8 @@ for the JavaScript code in this tag.
      rel="noopener noreferrer">
     <i class="fade fab fa-linkedin-in fa-1x"></i>
   </a>
-  <a href="https://www.buymeacoffee.com/kennyballou"
-     target="_blank"
-     rel="noopener noreferrer">
-    <i class="fade fas fa-mug-hot fa-1x"></i>
+  <a href="/support.html">
+    <i class="fade fas fa-heart fa-1x"></i>
   </a>
   <a href="/resume.pdf"
      target="_blank">
@@ -337,14 +335,14 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org418412d">Packfiles</a>
+<li><a href="#org6750a10">Packfiles</a>
 <ul>
-<li><a href="#org8e5bec2">Packs</a></li>
-<li><a href="#orga04c8b1">Indexes</a></li>
-<li><a href="#orgb617e18">Plumbing</a></li>
+<li><a href="#orgb0394ee">Packs</a></li>
+<li><a href="#org7aad981">Indexes</a></li>
+<li><a href="#org0f55016">Plumbing</a></li>
 </ul>
 </li>
-<li><a href="#orgbadb2a1">Summary</a></li>
+<li><a href="#org2845966">Summary</a></li>
 </ul>
 </div>
 </div>
@@ -367,9 +365,9 @@ We're only going to discuss the high-level details of packfiles, there are
 <a href="https://git.kernel.org/cgit/git/git.git/tree/Documentation/technical/pack-format.txt">describe</a> the <a href="https://codewords.recurse.com/issues/three/unpacking-git-packfiles/">details</a> better.
 </p>
 
-<div id="outline-container-org418412d" class="outline-2">
-<h2 id="org418412d">Packfiles</h2>
-<div class="outline-text-2" id="text-org418412d">
+<div id="outline-container-org6750a10" class="outline-2">
+<h2 id="org6750a10">Packfiles</h2>
+<div class="outline-text-2" id="text-org6750a10">
 <p>
 Packfiles, like <a href="https://kennyballou.com/blog/2016/01/git-in-reverse">git objects before</a>, are an internal file
 set for storing objects in a more compressed format.  That is, instead of
@@ -407,9 +405,9 @@ We'll take a small moment to describe each in a little more detail.
 </p>
 </div>
 
-<div id="outline-container-org8e5bec2" class="outline-3">
-<h3 id="org8e5bec2">Packs</h3>
-<div class="outline-text-3" id="text-org8e5bec2">
+<div id="outline-container-orgb0394ee" class="outline-3">
+<h3 id="orgb0394ee">Packs</h3>
+<div class="outline-text-3" id="text-orgb0394ee">
 <p>
 Packfiles are relatively straight forward, there's a 12 byte header, first four
 spell "PACK", next four provide the version, "2" as of this writing, and the
@@ -458,9 +456,9 @@ index file is created to maintain a way to peer into the packfile efficiently.
 </div>
 </div>
 
-<div id="outline-container-orga04c8b1" class="outline-3">
-<h3 id="orga04c8b1">Indexes</h3>
-<div class="outline-text-3" id="text-orga04c8b1">
+<div id="outline-container-org7aad981" class="outline-3">
+<h3 id="org7aad981">Indexes</h3>
+<div class="outline-text-3" id="text-org7aad981">
 <p>
 Packfile indexes solve the random object access efficiency problems caused by
 heavily compacting objects into a single file.
@@ -527,9 +525,9 @@ access to objects in the repository.
 </div>
 </div>
 
-<div id="outline-container-orgb617e18" class="outline-3">
-<h3 id="orgb617e18">Plumbing</h3>
-<div class="outline-text-3" id="text-orgb617e18">
+<div id="outline-container-org0f55016" class="outline-3">
+<h3 id="org0f55016">Plumbing</h3>
+<div class="outline-text-3" id="text-org0f55016">
 <p>
 Git will automatically create packfiles when synchronizing a repository (e.g.,
 pushing, pulling, cloning), but they can also be created manually with the
@@ -687,9 +685,9 @@ within a packfile.
 </div>
 </div>
 
-<div id="outline-container-orgbadb2a1" class="outline-2">
-<h2 id="orgbadb2a1">Summary</h2>
-<div class="outline-text-2" id="text-orgbadb2a1">
+<div id="outline-container-org2845966" class="outline-2">
+<h2 id="org2845966">Summary</h2>
+<div class="outline-text-2" id="text-org2845966">
 <p>
 Hopefully, we now have a deeper knowledge of the compact object format Git
 uses, namely, packfiles.  Remember, the motivation for these files was not

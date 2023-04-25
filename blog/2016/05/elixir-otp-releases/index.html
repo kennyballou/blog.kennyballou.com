@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-01-13 Fri 23:46 -->
+<!-- 2023-04-25 Tue 05:31 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Releasing Elixir/OTP applications to the World</title>
@@ -290,10 +290,8 @@ for the JavaScript code in this tag.
      rel="noopener noreferrer">
     <i class="fade fab fa-linkedin-in fa-1x"></i>
   </a>
-  <a href="https://www.buymeacoffee.com/kennyballou"
-     target="_blank"
-     rel="noopener noreferrer">
-    <i class="fade fas fa-mug-hot fa-1x"></i>
+  <a href="/support.html">
+    <i class="fade fas fa-heart fa-1x"></i>
   </a>
   <a href="/resume.pdf"
      target="_blank">
@@ -315,17 +313,17 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org446e6fc">Problem</a>
+<li><a href="#org19c82be">Problem</a>
 <ul>
-<li><a href="#orgaaf7655">Shared Objects</a></li>
-<li><a href="#org664f339">Erlang Libraries</a></li>
-<li><a href="#orga567fd3">Docker or Virtualization</a></li>
-<li><a href="#org449f622">OTP as Project Dependency</a></li>
+<li><a href="#org78813c9">Shared Objects</a></li>
+<li><a href="#org2e6a5e4">Erlang Libraries</a></li>
+<li><a href="#orgdb016d3">Docker or Virtualization</a></li>
+<li><a href="#org2a6b20c">OTP as Project Dependency</a></li>
 </ul>
 </li>
-<li><a href="#orgde3dce9">Non-Solution Solutions</a></li>
-<li><a href="#orgff69cec">Solutions(?)</a></li>
-<li><a href="#org4af5ce0">Moving Forward</a></li>
+<li><a href="#orgc35a2d5">Non-Solution Solutions</a></li>
+<li><a href="#org640f2bc">Solutions(?)</a></li>
+<li><a href="#orgff30c54">Moving Forward</a></li>
 </ul>
 </div>
 </div>
@@ -379,9 +377,9 @@ and Erlang/Elixir stack on the production system is slightly unnerving for it's
 own set of reasons.
 </p>
 
-<div id="outline-container-org446e6fc" class="outline-2">
-<h2 id="org446e6fc">Problem</h2>
-<div class="outline-text-2" id="text-org446e6fc">
+<div id="outline-container-org19c82be" class="outline-2">
+<h2 id="org19c82be">Problem</h2>
+<div class="outline-text-2" id="text-org19c82be">
 <p>
 Here are some selected quotes; I'm not trying to pick on anyone in particular
 or the community at large, but I'm trying to show a representation of why this
@@ -432,9 +430,9 @@ machines are running the <code>AMD64</code> instruction sets, the architectures 
 </p>
 </div>
 
-<div id="outline-container-orgaaf7655" class="outline-3">
-<h3 id="orgaaf7655">Shared Objects</h3>
-<div class="outline-text-3" id="text-orgaaf7655">
+<div id="outline-container-org78813c9" class="outline-3">
+<h3 id="org78813c9">Shared Objects</h3>
+<div class="outline-text-3" id="text-org78813c9">
 <p>
 Let's start with the most simplistic issue, different versions of shared
 objects.
@@ -464,9 +462,9 @@ was built or what features the deployed application needs.
 </div>
 </div>
 
-<div id="outline-container-org664f339" class="outline-3">
-<h3 id="org664f339">Erlang Libraries</h3>
-<div class="outline-text-3" id="text-org664f339">
+<div id="outline-container-org2e6a5e4" class="outline-3">
+<h3 id="org2e6a5e4">Erlang Libraries</h3>
+<div class="outline-text-3" id="text-org2e6a5e4">
 <p>
 We may try to resolve this issue by adding a particular <code>rel/relx.config</code> file
 to our Elixir project.  Specifically, we will <i>not</i> bundle ERTS, opting to use
@@ -518,9 +516,9 @@ We are left to attempt more solutions.
 </div>
 </div>
 
-<div id="outline-container-orga567fd3" class="outline-3">
-<h3 id="orga567fd3">Docker or Virtualization</h3>
-<div class="outline-text-3" id="text-orga567fd3">
+<div id="outline-container-orgdb016d3" class="outline-3">
+<h3 id="orgdb016d3">Docker or Virtualization</h3>
+<div class="outline-text-3" id="text-orgdb016d3">
 <p>
 Next, since we do want to ultimately get our build running in a CI/CD
 environment, we may look toward virutalization/containerization.  Being
@@ -556,9 +554,9 @@ That's not going to work.
 </div>
 </div>
 
-<div id="outline-container-org449f622" class="outline-3">
-<h3 id="org449f622">OTP as Project Dependency</h3>
-<div class="outline-text-3" id="text-org449f622">
+<div id="outline-container-org2a6b20c" class="outline-3">
+<h3 id="org2a6b20c">OTP as Project Dependency</h3>
+<div class="outline-text-3" id="text-org2a6b20c">
 <p>
 Another option we might try is make Erlang a build dependency of our Elixir
 application, this <i>could</i> be achieved via the following structure:
@@ -626,9 +624,9 @@ about it as well.
 </div>
 </div>
 
-<div id="outline-container-orgde3dce9" class="outline-2">
-<h2 id="orgde3dce9">Non-Solution Solutions</h2>
-<div class="outline-text-2" id="text-orgde3dce9">
+<div id="outline-container-orgc35a2d5" class="outline-2">
+<h2 id="orgc35a2d5">Non-Solution Solutions</h2>
+<div class="outline-text-2" id="text-orgc35a2d5">
 <p>
 Of course, all of these above issues can be solved by "just building on the
 target machine" or by simply using <code>mix run</code> on the target instead.  However, I
@@ -652,9 +650,9 @@ upgrading can continue.
 </div>
 </div>
 
-<div id="outline-container-orgff69cec" class="outline-2">
-<h2 id="orgff69cec">Solutions(?)</h2>
-<div class="outline-text-2" id="text-orgff69cec">
+<div id="outline-container-org640f2bc" class="outline-2">
+<h2 id="org640f2bc">Solutions(?)</h2>
+<div class="outline-text-2" id="text-org640f2bc">
 <p>
 What are we to do? How are we to build Erlang/Elixir/OTP applications as part
 of our CI/CD pipeline? Particularly, how are we to build our applications on a
@@ -703,9 +701,9 @@ on the production farm itself.
 </div>
 </div>
 
-<div id="outline-container-org4af5ce0" class="outline-2">
-<h2 id="org4af5ce0">Moving Forward</h2>
-<div class="outline-text-2" id="text-org4af5ce0">
+<div id="outline-container-orgff30c54" class="outline-2">
+<h2 id="orgff30c54">Moving Forward</h2>
+<div class="outline-text-2" id="text-orgff30c54">
 <p>
 Releasing software isn't in a particularly hard class of problems, but it does
 have its challenges.  Some languages attempt to solve this challenge in its

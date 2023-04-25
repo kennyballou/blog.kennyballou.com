@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-01-13 Fri 23:46 -->
+<!-- 2023-04-25 Tue 05:31 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Blog Content Deploy with AWS Code Commit and Code Build</title>
@@ -290,10 +290,8 @@ for the JavaScript code in this tag.
      rel="noopener noreferrer">
     <i class="fade fab fa-linkedin-in fa-1x"></i>
   </a>
-  <a href="https://www.buymeacoffee.com/kennyballou"
-     target="_blank"
-     rel="noopener noreferrer">
-    <i class="fade fas fa-mug-hot fa-1x"></i>
+  <a href="/support.html">
+    <i class="fade fas fa-heart fa-1x"></i>
   </a>
   <a href="/resume.pdf"
      target="_blank">
@@ -315,12 +313,12 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org2c7de2b">Overview</a></li>
-<li><a href="#orgb67a08b">CloudFormation</a></li>
-<li><a href="#orga01377c"><code>buildspec.yml</code></a></li>
-<li><a href="#orgbf67e49">Docker</a></li>
-<li><a href="#org2914d53">Git Remote</a></li>
-<li><a href="#org636a49d">Parting Thoughts</a></li>
+<li><a href="#orga27c2bb">Overview</a></li>
+<li><a href="#orgd4fdba3">CloudFormation</a></li>
+<li><a href="#orgdc5d1b2"><code>buildspec.yml</code></a></li>
+<li><a href="#org3b829fd">Docker</a></li>
+<li><a href="#org84619ce">Git Remote</a></li>
+<li><a href="#org3abfca6">Parting Thoughts</a></li>
 </ul>
 </div>
 </div>
@@ -335,9 +333,9 @@ want to briefly discuss how it's now, finally, being auto deployed via
 
 </div>
 
-<div id="outline-container-org2c7de2b" class="outline-2">
-<h2 id="org2c7de2b">Overview</h2>
-<div class="outline-text-2" id="text-org2c7de2b">
+<div id="outline-container-orga27c2bb" class="outline-2">
+<h2 id="orga27c2bb">Overview</h2>
+<div class="outline-text-2" id="text-orga27c2bb">
 <p>
 The basic idea is fairly straight forward and is typical of most continuous
 deployment pipelines found elsewhere.  Upon pushing to a particular branch,
@@ -376,9 +374,9 @@ repositories</a>.
 </div>
 </div>
 
-<div id="outline-container-orgb67a08b" class="outline-2">
-<h2 id="orgb67a08b">CloudFormation</h2>
-<div class="outline-text-2" id="text-orgb67a08b">
+<div id="outline-container-orgd4fdba3" class="outline-2">
+<h2 id="orgd4fdba3">CloudFormation</h2>
+<div class="outline-text-2" id="text-orgd4fdba3">
 <p>
 Let's consider the specifics of creating the necessary components in
 <a href="https://aws.amazon.com/cloudformation/">AWS CloudFormation</a>.
@@ -654,9 +652,9 @@ necessary.
 </div>
 </div>
 
-<div id="outline-container-orga01377c" class="outline-2">
-<h2 id="orga01377c"><code>buildspec.yml</code></h2>
-<div class="outline-text-2" id="text-orga01377c">
+<div id="outline-container-orgdc5d1b2" class="outline-2">
+<h2 id="orgdc5d1b2"><code>buildspec.yml</code></h2>
+<div class="outline-text-2" id="text-orgdc5d1b2">
 <p>
 Depending on how complicated the blog content is, the <code>buildspec.yml</code> file can
 be trivial to very complex.  If most of the build instructions are already
@@ -685,9 +683,9 @@ Realistically, a line could be removed but is left for clarity.
 </div>
 </div>
 
-<div id="outline-container-orgbf67e49" class="outline-2">
-<h2 id="orgbf67e49">Docker</h2>
-<div class="outline-text-2" id="text-orgbf67e49">
+<div id="outline-container-org3b829fd" class="outline-2">
+<h2 id="org3b829fd">Docker</h2>
+<div class="outline-text-2" id="text-org3b829fd">
 <p>
 Since this blog is <a href="https://kennyballou.com/blog/2019/03/static-site-generation">built using</a> <a href="https://pandoc.org/">Pandoc</a>
 and some <a href="https://www.gnu.org/software/bash/">Bash scripts</a>, a custom <a href="https://hub.docker.com/repository/docker/kennyballou/debian-pandoc">build image</a>
@@ -705,9 +703,9 @@ images from <a href="https://aws.amazon.com/">AWS</a> may be possible.
 </div>
 </div>
 
-<div id="outline-container-org2914d53" class="outline-2">
-<h2 id="org2914d53">Git Remote</h2>
-<div class="outline-text-2" id="text-org2914d53">
+<div id="outline-container-org84619ce" class="outline-2">
+<h2 id="org84619ce">Git Remote</h2>
+<div class="outline-text-2" id="text-org84619ce">
 <p>
 A <a href="https://git-scm.com/">git</a> repository may have any number of remote repositories associated
 with it.  Consider forked projects or repositories on <a href="https://github.com/">GitHub</a> for a
@@ -775,9 +773,9 @@ branch, push to the different remote:
 </div>
 </div>
 
-<div id="outline-container-org636a49d" class="outline-2">
-<h2 id="org636a49d">Parting Thoughts</h2>
-<div class="outline-text-2" id="text-org636a49d">
+<div id="outline-container-org3abfca6" class="outline-2">
+<h2 id="org3abfca6">Parting Thoughts</h2>
+<div class="outline-text-2" id="text-org3abfca6">
 <p>
 Honestly, there may be easier and cheaper ways to host some simple
 infrastructure for running and building projects.  <a href="https://github.com/">GitHub</a> now has
