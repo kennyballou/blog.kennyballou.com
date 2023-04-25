@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-04-25 Tue 05:36 -->
+<!-- 2023-04-25 Tue 05:39 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>(New) Static Site Generation</title>
@@ -313,17 +313,17 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org6336a7f">Motivation</a></li>
-<li><a href="#org0915ddb">High-Level Implementation</a></li>
-<li><a href="#org0523755">Detailed Implementation</a>
+<li><a href="#orgd2a52fc">Motivation</a></li>
+<li><a href="#org2ae1320">High-Level Implementation</a></li>
+<li><a href="#org38ffe80">Detailed Implementation</a>
 <ul>
-<li><a href="#org6b74194">Post Content Generation</a></li>
-<li><a href="#org105dd4f">Summary Page Generation</a></li>
-<li><a href="#orga4ec8da">RSS/XML Generation</a></li>
+<li><a href="#org6d2b501">Post Content Generation</a></li>
+<li><a href="#org9212311">Summary Page Generation</a></li>
+<li><a href="#org30d0374">RSS/XML Generation</a></li>
 </ul>
 </li>
-<li><a href="#org2958d92">Future Work</a></li>
-<li><a href="#orgf74a706">Parting Thoughts</a></li>
+<li><a href="#orgb4f5633">Future Work</a></li>
+<li><a href="#org1286b88">Parting Thoughts</a></li>
 </ul>
 </div>
 </div>
@@ -343,9 +343,9 @@ format and changing the generation process into a completely custom set of
 scripts.
 </p>
 
-<div id="outline-container-org6336a7f" class="outline-2">
-<h2 id="org6336a7f">Motivation</h2>
-<div class="outline-text-2" id="text-org6336a7f">
+<div id="outline-container-orgd2a52fc" class="outline-2">
+<h2 id="orgd2a52fc">Motivation</h2>
+<div class="outline-text-2" id="text-orgd2a52fc">
 <p>
 When I first set down to build a blog 5 years ago, I had a pretty basic set of
 requirements.
@@ -432,9 +432,9 @@ invocations to <a href="https://pandoc.org">Pandoc</a>.
 </div>
 </div>
 
-<div id="outline-container-org0915ddb" class="outline-2">
-<h2 id="org0915ddb">High-Level Implementation</h2>
-<div class="outline-text-2" id="text-org0915ddb">
+<div id="outline-container-org2ae1320" class="outline-2">
+<h2 id="org2ae1320">High-Level Implementation</h2>
+<div class="outline-text-2" id="text-org2ae1320">
 <p>
 The core of the implementation of the new site generation is blog posts written
 in <a href="https://org-mode.org">Org-mode</a>, processed by several shell scripts, using
@@ -462,9 +462,9 @@ the new version to break existing links.
 </div>
 </div>
 
-<div id="outline-container-org0523755" class="outline-2">
-<h2 id="org0523755">Detailed Implementation</h2>
-<div class="outline-text-2" id="text-org0523755">
+<div id="outline-container-org38ffe80" class="outline-2">
+<h2 id="org38ffe80">Detailed Implementation</h2>
+<div class="outline-text-2" id="text-org38ffe80">
 <p>
 The easy part is generating each post.  This is simply an <code>index.html</code> in the
 correct folder.  The majority of the complexities stem from the summaries and
@@ -472,9 +472,9 @@ main <code>index</code> page.
 </p>
 </div>
 
-<div id="outline-container-org6b74194" class="outline-3">
-<h3 id="org6b74194">Post Content Generation</h3>
-<div class="outline-text-3" id="text-org6b74194">
+<div id="outline-container-org6d2b501" class="outline-3">
+<h3 id="org6d2b501">Post Content Generation</h3>
+<div class="outline-text-3" id="text-org6d2b501">
 <p>
 To generate a blog post's <code>index.html</code> page, we consider the following <code>make</code>
 target:
@@ -573,9 +573,9 @@ otherwise largely duplicated content.
 </div>
 </div>
 
-<div id="outline-container-org105dd4f" class="outline-3">
-<h3 id="org105dd4f">Summary Page Generation</h3>
-<div class="outline-text-3" id="text-org105dd4f">
+<div id="outline-container-org9212311" class="outline-3">
+<h3 id="org9212311">Summary Page Generation</h3>
+<div class="outline-text-3" id="text-org9212311">
 <p>
 The summary page is a bit more involved to generate.  A few questions had to be
 answered before it was possible: how to generate the summary text? And how
@@ -712,9 +712,9 @@ post summaries onto the <code>index.html</code> page.
 </div>
 </div>
 
-<div id="outline-container-orga4ec8da" class="outline-3">
-<h3 id="orga4ec8da">RSS/XML Generation</h3>
-<div class="outline-text-3" id="text-orga4ec8da">
+<div id="outline-container-org30d0374" class="outline-3">
+<h3 id="org30d0374">RSS/XML Generation</h3>
+<div class="outline-text-3" id="text-org30d0374">
 <p>
 I also wanted to keep the RSS/XML feeds going.  However, as it turns out,
 generating the RSS feed was achieved by performing essentially the same steps
@@ -724,9 +724,9 @@ used for generating the summary <code>index.html</code> page.
 </div>
 </div>
 
-<div id="outline-container-org2958d92" class="outline-2">
-<h2 id="org2958d92">Future Work</h2>
-<div class="outline-text-2" id="text-org2958d92">
+<div id="outline-container-orgb4f5633" class="outline-2">
+<h2 id="orgb4f5633">Future Work</h2>
+<div class="outline-text-2" id="text-orgb4f5633">
 <p>
 There is a fairly obvious limitation of the summary page generation, but only
 really obvious if I write more content.  There was and is no current archive
@@ -738,9 +738,9 @@ is generated using <a href="https://gohugo.io/">Hugo</a> or generated via the ne
 </div>
 </div>
 
-<div id="outline-container-orgf74a706" class="outline-2">
-<h2 id="orgf74a706">Parting Thoughts</h2>
-<div class="outline-text-2" id="text-orgf74a706">
+<div id="outline-container-org1286b88" class="outline-2">
+<h2 id="org1286b88">Parting Thoughts</h2>
+<div class="outline-text-2" id="text-org1286b88">
 <p>
 Like many projects, this was started because I personally was dissatisfied with
 the current state of options.  However, that said, I did not write these
@@ -760,7 +760,7 @@ If you have questions or comments, feel free to reach out to me.
 </div>
 <footer id="" class="status">
 <footer>
-  <p>&copy; 2014-2022 Kenny Ballou.
+  <p>&copy; 2014-2023 Kenny Ballou.
     <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Some rights
       reserved.</a></p>
   <p>Powered by <a href="https://gnu.org">GNU/Linux</a></p>
