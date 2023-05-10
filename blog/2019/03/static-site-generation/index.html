@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-04-25 Tue 17:50 -->
+<!-- 2023-05-10 Wed 16:40 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>(New) Static Site Generation</title>
@@ -313,17 +313,17 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgd449c18">Motivation</a></li>
-<li><a href="#org280152b">High-Level Implementation</a></li>
-<li><a href="#orgf2e1850">Detailed Implementation</a>
+<li><a href="#org47f65e7">Motivation</a></li>
+<li><a href="#orgdf53370">High-Level Implementation</a></li>
+<li><a href="#org17f3e22">Detailed Implementation</a>
 <ul>
-<li><a href="#org5713e88">Post Content Generation</a></li>
-<li><a href="#orgb52fcb3">Summary Page Generation</a></li>
-<li><a href="#org20a01aa">RSS/XML Generation</a></li>
+<li><a href="#org699ee22">Post Content Generation</a></li>
+<li><a href="#org734b5c3">Summary Page Generation</a></li>
+<li><a href="#orgc535c0e">RSS/XML Generation</a></li>
 </ul>
 </li>
-<li><a href="#orga926c39">Future Work</a></li>
-<li><a href="#orgb1d27f3">Parting Thoughts</a></li>
+<li><a href="#orgfd12adb">Future Work</a></li>
+<li><a href="#org50fabd6">Parting Thoughts</a></li>
 </ul>
 </div>
 </div>
@@ -343,9 +343,9 @@ format and changing the generation process into a completely custom set of
 scripts.
 </p>
 
-<div id="outline-container-orgd449c18" class="outline-2">
-<h2 id="orgd449c18">Motivation</h2>
-<div class="outline-text-2" id="text-orgd449c18">
+<div id="outline-container-org47f65e7" class="outline-2">
+<h2 id="org47f65e7">Motivation</h2>
+<div class="outline-text-2" id="text-org47f65e7">
 <p>
 When I first set down to build a blog 5 years ago, I had a pretty basic set of
 requirements.
@@ -432,9 +432,9 @@ invocations to <a href="https://pandoc.org">Pandoc</a>.
 </div>
 </div>
 
-<div id="outline-container-org280152b" class="outline-2">
-<h2 id="org280152b">High-Level Implementation</h2>
-<div class="outline-text-2" id="text-org280152b">
+<div id="outline-container-orgdf53370" class="outline-2">
+<h2 id="orgdf53370">High-Level Implementation</h2>
+<div class="outline-text-2" id="text-orgdf53370">
 <p>
 The core of the implementation of the new site generation is blog posts written
 in <a href="https://org-mode.org">Org-mode</a>, processed by several shell scripts, using
@@ -462,9 +462,9 @@ the new version to break existing links.
 </div>
 </div>
 
-<div id="outline-container-orgf2e1850" class="outline-2">
-<h2 id="orgf2e1850">Detailed Implementation</h2>
-<div class="outline-text-2" id="text-orgf2e1850">
+<div id="outline-container-org17f3e22" class="outline-2">
+<h2 id="org17f3e22">Detailed Implementation</h2>
+<div class="outline-text-2" id="text-org17f3e22">
 <p>
 The easy part is generating each post.  This is simply an <code>index.html</code> in the
 correct folder.  The majority of the complexities stem from the summaries and
@@ -472,9 +472,9 @@ main <code>index</code> page.
 </p>
 </div>
 
-<div id="outline-container-org5713e88" class="outline-3">
-<h3 id="org5713e88">Post Content Generation</h3>
-<div class="outline-text-3" id="text-org5713e88">
+<div id="outline-container-org699ee22" class="outline-3">
+<h3 id="org699ee22">Post Content Generation</h3>
+<div class="outline-text-3" id="text-org699ee22">
 <p>
 To generate a blog post's <code>index.html</code> page, we consider the following <code>make</code>
 target:
@@ -573,9 +573,9 @@ otherwise largely duplicated content.
 </div>
 </div>
 
-<div id="outline-container-orgb52fcb3" class="outline-3">
-<h3 id="orgb52fcb3">Summary Page Generation</h3>
-<div class="outline-text-3" id="text-orgb52fcb3">
+<div id="outline-container-org734b5c3" class="outline-3">
+<h3 id="org734b5c3">Summary Page Generation</h3>
+<div class="outline-text-3" id="text-org734b5c3">
 <p>
 The summary page is a bit more involved to generate.  A few questions had to be
 answered before it was possible: how to generate the summary text? And how
@@ -712,9 +712,9 @@ post summaries onto the <code>index.html</code> page.
 </div>
 </div>
 
-<div id="outline-container-org20a01aa" class="outline-3">
-<h3 id="org20a01aa">RSS/XML Generation</h3>
-<div class="outline-text-3" id="text-org20a01aa">
+<div id="outline-container-orgc535c0e" class="outline-3">
+<h3 id="orgc535c0e">RSS/XML Generation</h3>
+<div class="outline-text-3" id="text-orgc535c0e">
 <p>
 I also wanted to keep the RSS/XML feeds going.  However, as it turns out,
 generating the RSS feed was achieved by performing essentially the same steps
@@ -724,9 +724,9 @@ used for generating the summary <code>index.html</code> page.
 </div>
 </div>
 
-<div id="outline-container-orga926c39" class="outline-2">
-<h2 id="orga926c39">Future Work</h2>
-<div class="outline-text-2" id="text-orga926c39">
+<div id="outline-container-orgfd12adb" class="outline-2">
+<h2 id="orgfd12adb">Future Work</h2>
+<div class="outline-text-2" id="text-orgfd12adb">
 <p>
 There is a fairly obvious limitation of the summary page generation, but only
 really obvious if I write more content.  There was and is no current archive
@@ -738,9 +738,9 @@ is generated using <a href="https://gohugo.io/">Hugo</a> or generated via the ne
 </div>
 </div>
 
-<div id="outline-container-orgb1d27f3" class="outline-2">
-<h2 id="orgb1d27f3">Parting Thoughts</h2>
-<div class="outline-text-2" id="text-orgb1d27f3">
+<div id="outline-container-org50fabd6" class="outline-2">
+<h2 id="org50fabd6">Parting Thoughts</h2>
+<div class="outline-text-2" id="text-org50fabd6">
 <p>
 Like many projects, this was started because I personally was dissatisfied with
 the current state of options.  However, that said, I did not write these

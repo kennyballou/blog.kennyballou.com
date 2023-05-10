@@ -6,11 +6,9 @@
 <!-- 2023-05-10 Wed 16:40 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Org-Mode Publishing Static Site Generation</title>
+<title>Today in Bad Plots</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="kb" />
-<meta name="description" content="New New Static site generation with Org-Mode Publishing"
- />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -308,220 +306,40 @@ for the JavaScript code in this tag.
 </nav>
 </header>
 <div id="main">
-<h1 class="title">Org-Mode Publishing Static Site Generation</h1>
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#orgd89a0ee">Motivation</a></li>
-<li><a href="#org1acc8bf">Some Emacs Lisp</a>
-<ul>
-<li><a href="#orgd0ffaae">Preamble and Postamble</a></li>
-<li><a href="#org87beabd">Simple CSS Preamble + Postamble</a></li>
-<li><a href="#org1a8f5a1"><code>ox-rss</code></a></li>
-</ul>
-</li>
-<li><a href="#org0ae3867">Building and Publishing</a>
-<ul>
-<li><a href="#org7368b53">Make</a></li>
-<li><a href="#org53e8e89">GitHub Actions</a></li>
-</ul>
-</li>
-<li><a href="#org651afa8">Parting Thoughts</a></li>
-</ul>
-</div>
-</div>
-<div class="preview">
+<h1 class="title">Today in Bad Plots</h1>
+<div class="PREVIEW">
 <p>
-<a href="https://kennyballou.com/blog/2019/03/static-site-generation/index.html">Previously</a>, I discussed changing the generation of this site.  Specifically,
-using <a href="https://orgmode.org/">Org-Mode</a> files with <a href="https://pandoc.org/">Pandoc</a> and some <a href="https://www.gnu.org/software/bash/">Bash</a> scripts to generate the site.
-However, today, I have changed the site again.  Now, the site is generated
-entirely using <a href="https://orgmode.org/">Org-Mode</a>.
+Here are some terrible plots that tell little about data, very little.
 </p>
 
 </div>
 
-<p>
-The Intertubes overflow with <a href="https://systemcrafters.net/publishing-websites-with-org-mode/automated-site-publishing/">previous</a> <a href="https://ogbe.net/blog/blogging_with_org.html">posts</a> about static site generation or
-blogging with only <a href="https://orgmode.org/">Org Mode</a>.  I focus mainly on a few details to make things
-work here.  But first, motivation.  Why change.
-</p>
 
-<div id="outline-container-orgd89a0ee" class="outline-2">
-<h2 id="orgd89a0ee">Motivation</h2>
-<div class="outline-text-2" id="text-orgd89a0ee">
-<p>
-I wanted to transition the blog into a more general purpose site and I felt my
-hand-rolled generation would not be adequate.  I did not want to go back to
-bigger tools like <a href="https://gohugo.io/">Hugo</a> and friends.  While these would certainly be capable,
-remaining in <a href="https://orgmode.org/">Org</a> and <a href="https://gnu.org/software/emacs">Emacs</a> seemed like the "winning" move.
-</p>
-
-<p>
-I also switched from using my own <a href="https://ethanschoonover.com/solarized/">Solarized</a> CSS, to <a href="https://simplecss.org/">Simple CSS</a>.
-</p>
-
-<p>
-A nice benefit of this change is automatic table of contents generated for each
-post and easily disabled for pages where table of contents do not make sense.
-Another benefit was learning that many of the links in the previous posts were
-broken.  <a href="https://orgmode.org/manual/Publishing.html">Publishing</a> does not generate sites with broken links.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org1acc8bf" class="outline-2">
-<h2 id="org1acc8bf">Some Emacs Lisp</h2>
-<div class="outline-text-2" id="text-org1acc8bf">
-<p>
-Defining an <a href="https://orgmode.org/">Org</a> project is fairly straightforward, but some parameters to the
-publishing projects depend on the circumstance.
+<div class="figure">
+<p><object type="image/svg+xml" data="zones-iteration-box.svg" class="org-svg" width="99%">
+Sorry, your browser does not support SVG.</object>
 </p>
 </div>
 
-<div id="outline-container-orgd0ffaae" class="outline-3">
-<h3 id="orgd0ffaae">Preamble and Postamble</h3>
-<div class="outline-text-3" id="text-orgd0ffaae">
-<p>
-To handle the headers and footers of the site, I defined the following function
-to read in, now modified versions of, the previous header and footer HTML
-content.
-</p>
 
-<div class="org-src-container">
-<pre class="src src-elisp">(<span style="font-weight: bold;">defun</span> <span style="font-weight: bold;">read-template</span> (filename)
-  <span style="font-style: italic;">"Read template contents from FILENAME."</span>
-  (<span style="font-weight: bold;">with-temp-buffer</span>
-    (insert-file-contents filename)
-    (buffer-string)))
-</pre>
+<div class="figure">
+<p><object type="image/svg+xml" data="predicates-iteration-box.svg" class="org-svg" width="99%">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="iteration-boxes.svg" class="org-svg" width="99%">
+Sorry, your browser does not support SVG.</object>
+</p>
 </div>
 
 <p>
-Then, this function can be used to load in the content of the template files:
+These are plots of the different branches within some fixed-point function and
+their general distribution.  As the title and plots might suggest,
+"distribution" is a generous term.
 </p>
-
-<div class="org-src-container">
-<pre class="src src-elisp">(<span style="font-weight: bold;">setq</span> head-extra-template (read-template <span style="font-style: italic;">"templates/html_header.html"</span>))
-(<span style="font-weight: bold;">setq</span> header-template (read-template <span style="font-style: italic;">"templates/html_sub_header.html"</span>))
-(<span style="font-weight: bold;">setq</span> header-nav (read-template <span style="font-style: italic;">"templates/nav.html"</span>))
-(<span style="font-weight: bold;">setq</span> footer-template (read-template <span style="font-style: italic;">"templates/html_footer.html"</span>))
-</pre>
-</div>
-
-<p>
-Then for each project, the following keys are set:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-elisp"><span style="font-weight: bold;">:html-head-extra</span> head-extra-template
-<span style="font-weight: bold;">:html-preamble</span> header-nav
-<span style="font-weight: bold;">:html-postamble</span> footer-template
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org87beabd" class="outline-3">
-<h3 id="org87beabd">Simple CSS Preamble + Postamble</h3>
-<div class="outline-text-3" id="text-org87beabd">
-<p>
-To get the preamble and postamble to be styled right by <a href="https://simplecss.org/">SimpleCSS</a>, the
-following keys were necessary:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-elisp"><span style="font-weight: bold;">:html-divs</span> '((preamble <span style="font-style: italic;">"header"</span> <span style="font-style: italic;">""</span>)
-             (content <span style="font-style: italic;">"div"</span> <span style="font-style: italic;">"main"</span>)
-             (postamble <span style="font-style: italic;">"footer"</span> <span style="font-style: italic;">""</span>))
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org1a8f5a1" class="outline-3">
-<h3 id="org1a8f5a1"><code>ox-rss</code></h3>
-<div class="outline-text-3" id="text-org1a8f5a1">
-<p>
-To publish the RSS feed, I needed to copy the <a href="https://github.com/kennyballou/kennyballou.github.io/blob/31878715d1f29ab9c95c31b9d9d713db74dabfba/lisp/ox-rss.el"><code>ox-rss.el</code></a> file wholesale so that
-it was accessible during the automated publishing.
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org0ae3867" class="outline-2">
-<h2 id="org0ae3867">Building and Publishing</h2>
-<div class="outline-text-2" id="text-org0ae3867">
-</div>
-
-<div id="outline-container-org7368b53" class="outline-3">
-<h3 id="org7368b53">Make</h3>
-<div class="outline-text-3" id="text-org7368b53">
-<p>
-With the <code>build-site.el</code> file defined, the <a href="https://www.gnu.org/software/make/">Make target</a> is quite simple.
-</p>
-
-<div class="org-src-container">
-<pre class="src src-GNUMakefile">.PHONY: org-publish
-org-publish:
-	emacs -Q --script ./build-site.el
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org53e8e89" class="outline-3">
-<h3 id="org53e8e89">GitHub Actions</h3>
-<div class="outline-text-3" id="text-org53e8e89">
-<p>
-In an earlier <a href="https://kennyballou.com/blog/2020/02/blog-deploy-code-commit-and-build/index.html">post</a>, I described using <a href="https://aws.amazon.com/codebuild/">AWS CodeBuild</a> to automatically build site
-content and copy the files to <a href="https://aws.amazon.com/s3">S3</a>.  However, after one timed-out build attempted
-to put 15 GB of useless files into my <a href="https://aws.amazon.com/s3">S3</a> bucket and caused over 400,000
-requests against the bucket, it was time to try something new.
-</p>
-
-<p>
-While hosting with <a href="https://aws.amazon.com/s3">S3</a> and <a href="https://aws.amazon.com/cloudfront">CloudFront</a> is cheap, hosting with <a href="https://pages.github.com/">GitHub Pages</a> is
-free.  More than that, if I ever write something people are interested in, I do
-not need to worry about my <a href="https://aws.amazon.com/cloudfront">CloudFront</a> costs ballooning out of control.
-</p>
-
-<blockquote>
-<p>
-Of course, this is not a real worry.  CloudFront has only cost about $0.01 for
-a while, sometimes less.
-</p>
-</blockquote>
-
-<p>
-The process of setting this up is straightforward and more up-to-date
-documentation is available from <a href="https://github.com/">GitHub</a>.
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org651afa8" class="outline-2">
-<h2 id="org651afa8">Parting Thoughts</h2>
-<div class="outline-text-2" id="text-org651afa8">
-<p>
-Nothing is perfect, but overall, I am pleased with the result of switching to
-using <a href="https://orgmode.org/">Org Mode</a> for publishing.  There exists a learning curve&#x2013; as with all
-things&#x2013; however, not needing to develop and maintain the publishing scripts to
-the degree the custom rolled solution required is a relief.  It may require
-<i>some</i> code to develop a new section or something else.  But not nearly to the
-degree the old method required.
-</p>
-
-<p>
-Certainly, changing the hosting was not intended.  I started the publishing
-change with the intent that it would still be hosted with <a href="https://aws.amazon.com/cloudfront">AWS CloudFront</a> and
-<a href="https://aws.amazon.com/s3">AWS S3</a>.  Unfortunately, the build issues described above and my own second
-guessing the rationale for hosting with <a href="https://aws.amazon.com/">AWS</a> persuaded me to switch.
-</p>
-</div>
-</div>
 </div>
 <footer id="" class="status">
 <footer>

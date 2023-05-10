@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-04-25 Tue 17:50 -->
+<!-- 2023-05-10 Wed 16:40 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Git Packfiles</title>
@@ -335,14 +335,14 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org38d2cac">Packfiles</a>
+<li><a href="#orgbfaa42c">Packfiles</a>
 <ul>
-<li><a href="#orgaa35cda">Packs</a></li>
-<li><a href="#org16f094f">Indexes</a></li>
-<li><a href="#org79752e1">Plumbing</a></li>
+<li><a href="#org451cd14">Packs</a></li>
+<li><a href="#org6a06e8b">Indexes</a></li>
+<li><a href="#orgec76b7c">Plumbing</a></li>
 </ul>
 </li>
-<li><a href="#orgf845f52">Summary</a></li>
+<li><a href="#org40d6ce3">Summary</a></li>
 </ul>
 </div>
 </div>
@@ -365,9 +365,9 @@ We're only going to discuss the high-level details of packfiles, there are
 <a href="https://git.kernel.org/cgit/git/git.git/tree/Documentation/technical/pack-format.txt">describe</a> the <a href="https://codewords.recurse.com/issues/three/unpacking-git-packfiles/">details</a> better.
 </p>
 
-<div id="outline-container-org38d2cac" class="outline-2">
-<h2 id="org38d2cac">Packfiles</h2>
-<div class="outline-text-2" id="text-org38d2cac">
+<div id="outline-container-orgbfaa42c" class="outline-2">
+<h2 id="orgbfaa42c">Packfiles</h2>
+<div class="outline-text-2" id="text-orgbfaa42c">
 <p>
 Packfiles, like <a href="https://kennyballou.com/blog/2016/01/git-in-reverse">git objects before</a>, are an internal file
 set for storing objects in a more compressed format.  That is, instead of
@@ -405,9 +405,9 @@ We'll take a small moment to describe each in a little more detail.
 </p>
 </div>
 
-<div id="outline-container-orgaa35cda" class="outline-3">
-<h3 id="orgaa35cda">Packs</h3>
-<div class="outline-text-3" id="text-orgaa35cda">
+<div id="outline-container-org451cd14" class="outline-3">
+<h3 id="org451cd14">Packs</h3>
+<div class="outline-text-3" id="text-org451cd14">
 <p>
 Packfiles are relatively straight forward, there's a 12 byte header, first four
 spell "PACK", next four provide the version, "2" as of this writing, and the
@@ -456,9 +456,9 @@ index file is created to maintain a way to peer into the packfile efficiently.
 </div>
 </div>
 
-<div id="outline-container-org16f094f" class="outline-3">
-<h3 id="org16f094f">Indexes</h3>
-<div class="outline-text-3" id="text-org16f094f">
+<div id="outline-container-org6a06e8b" class="outline-3">
+<h3 id="org6a06e8b">Indexes</h3>
+<div class="outline-text-3" id="text-org6a06e8b">
 <p>
 Packfile indexes solve the random object access efficiency problems caused by
 heavily compacting objects into a single file.
@@ -525,9 +525,9 @@ access to objects in the repository.
 </div>
 </div>
 
-<div id="outline-container-org79752e1" class="outline-3">
-<h3 id="org79752e1">Plumbing</h3>
-<div class="outline-text-3" id="text-org79752e1">
+<div id="outline-container-orgec76b7c" class="outline-3">
+<h3 id="orgec76b7c">Plumbing</h3>
+<div class="outline-text-3" id="text-orgec76b7c">
 <p>
 Git will automatically create packfiles when synchronizing a repository (e.g.,
 pushing, pulling, cloning), but they can also be created manually with the
@@ -685,9 +685,9 @@ within a packfile.
 </div>
 </div>
 
-<div id="outline-container-orgf845f52" class="outline-2">
-<h2 id="orgf845f52">Summary</h2>
-<div class="outline-text-2" id="text-orgf845f52">
+<div id="outline-container-org40d6ce3" class="outline-2">
+<h2 id="org40d6ce3">Summary</h2>
+<div class="outline-text-2" id="text-org40d6ce3">
 <p>
 Hopefully, we now have a deeper knowledge of the compact object format Git
 uses, namely, packfiles.  Remember, the motivation for these files was not
