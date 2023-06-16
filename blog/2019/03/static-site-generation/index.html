@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-06-01 Thu 05:10 -->
+<!-- 2023-06-16 Fri 00:14 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>(New) Static Site Generation</title>
@@ -267,6 +267,9 @@ for the JavaScript code in this tag.
  <a accesskey="H" href="https://kennyballou.com/"> HOME </a>
 </div><header id="" class="status">
 <nav>
+  <a href="/">
+    <i class="fade fas fa-home"></i>
+  </a>
   <a href="/about.html">
     <i class="fade fas fa-user-circle"></i>
   </a>
@@ -313,17 +316,17 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgafd9e63">Motivation</a></li>
-<li><a href="#org8bd90f8">High-Level Implementation</a></li>
-<li><a href="#org45d8a43">Detailed Implementation</a>
+<li><a href="#org3b4b14a">Motivation</a></li>
+<li><a href="#orgc52708a">High-Level Implementation</a></li>
+<li><a href="#org5bf9e1f">Detailed Implementation</a>
 <ul>
-<li><a href="#org1e31339">Post Content Generation</a></li>
-<li><a href="#org0d90115">Summary Page Generation</a></li>
-<li><a href="#org8202600">RSS/XML Generation</a></li>
+<li><a href="#org69ff2c8">Post Content Generation</a></li>
+<li><a href="#org0331f25">Summary Page Generation</a></li>
+<li><a href="#org4f0d637">RSS/XML Generation</a></li>
 </ul>
 </li>
-<li><a href="#org3cb47c6">Future Work</a></li>
-<li><a href="#org3c8a1a9">Parting Thoughts</a></li>
+<li><a href="#org580d846">Future Work</a></li>
+<li><a href="#orgb5bcd83">Parting Thoughts</a></li>
 </ul>
 </div>
 </div>
@@ -343,9 +346,9 @@ format and changing the generation process into a completely custom set of
 scripts.
 </p>
 
-<div id="outline-container-orgafd9e63" class="outline-2">
-<h2 id="orgafd9e63">Motivation</h2>
-<div class="outline-text-2" id="text-orgafd9e63">
+<div id="outline-container-org3b4b14a" class="outline-2">
+<h2 id="org3b4b14a">Motivation</h2>
+<div class="outline-text-2" id="text-org3b4b14a">
 <p>
 When I first set down to build a blog 5 years ago, I had a pretty basic set of
 requirements.
@@ -432,9 +435,9 @@ invocations to <a href="https://pandoc.org">Pandoc</a>.
 </div>
 </div>
 
-<div id="outline-container-org8bd90f8" class="outline-2">
-<h2 id="org8bd90f8">High-Level Implementation</h2>
-<div class="outline-text-2" id="text-org8bd90f8">
+<div id="outline-container-orgc52708a" class="outline-2">
+<h2 id="orgc52708a">High-Level Implementation</h2>
+<div class="outline-text-2" id="text-orgc52708a">
 <p>
 The core of the implementation of the new site generation is blog posts written
 in <a href="https://org-mode.org">Org-mode</a>, processed by several shell scripts, using
@@ -462,9 +465,9 @@ the new version to break existing links.
 </div>
 </div>
 
-<div id="outline-container-org45d8a43" class="outline-2">
-<h2 id="org45d8a43">Detailed Implementation</h2>
-<div class="outline-text-2" id="text-org45d8a43">
+<div id="outline-container-org5bf9e1f" class="outline-2">
+<h2 id="org5bf9e1f">Detailed Implementation</h2>
+<div class="outline-text-2" id="text-org5bf9e1f">
 <p>
 The easy part is generating each post.  This is simply an <code>index.html</code> in the
 correct folder.  The majority of the complexities stem from the summaries and
@@ -472,9 +475,9 @@ main <code>index</code> page.
 </p>
 </div>
 
-<div id="outline-container-org1e31339" class="outline-3">
-<h3 id="org1e31339">Post Content Generation</h3>
-<div class="outline-text-3" id="text-org1e31339">
+<div id="outline-container-org69ff2c8" class="outline-3">
+<h3 id="org69ff2c8">Post Content Generation</h3>
+<div class="outline-text-3" id="text-org69ff2c8">
 <p>
 To generate a blog post's <code>index.html</code> page, we consider the following <code>make</code>
 target:
@@ -573,9 +576,9 @@ otherwise largely duplicated content.
 </div>
 </div>
 
-<div id="outline-container-org0d90115" class="outline-3">
-<h3 id="org0d90115">Summary Page Generation</h3>
-<div class="outline-text-3" id="text-org0d90115">
+<div id="outline-container-org0331f25" class="outline-3">
+<h3 id="org0331f25">Summary Page Generation</h3>
+<div class="outline-text-3" id="text-org0331f25">
 <p>
 The summary page is a bit more involved to generate.  A few questions had to be
 answered before it was possible: how to generate the summary text? And how
@@ -712,9 +715,9 @@ post summaries onto the <code>index.html</code> page.
 </div>
 </div>
 
-<div id="outline-container-org8202600" class="outline-3">
-<h3 id="org8202600">RSS/XML Generation</h3>
-<div class="outline-text-3" id="text-org8202600">
+<div id="outline-container-org4f0d637" class="outline-3">
+<h3 id="org4f0d637">RSS/XML Generation</h3>
+<div class="outline-text-3" id="text-org4f0d637">
 <p>
 I also wanted to keep the RSS/XML feeds going.  However, as it turns out,
 generating the RSS feed was achieved by performing essentially the same steps
@@ -724,9 +727,9 @@ used for generating the summary <code>index.html</code> page.
 </div>
 </div>
 
-<div id="outline-container-org3cb47c6" class="outline-2">
-<h2 id="org3cb47c6">Future Work</h2>
-<div class="outline-text-2" id="text-org3cb47c6">
+<div id="outline-container-org580d846" class="outline-2">
+<h2 id="org580d846">Future Work</h2>
+<div class="outline-text-2" id="text-org580d846">
 <p>
 There is a fairly obvious limitation of the summary page generation, but only
 really obvious if I write more content.  There was and is no current archive
@@ -738,9 +741,9 @@ is generated using <a href="https://gohugo.io/">Hugo</a> or generated via the ne
 </div>
 </div>
 
-<div id="outline-container-org3c8a1a9" class="outline-2">
-<h2 id="org3c8a1a9">Parting Thoughts</h2>
-<div class="outline-text-2" id="text-org3c8a1a9">
+<div id="outline-container-orgb5bcd83" class="outline-2">
+<h2 id="orgb5bcd83">Parting Thoughts</h2>
+<div class="outline-text-2" id="text-orgb5bcd83">
 <p>
 Like many projects, this was started because I personally was dissatisfied with
 the current state of options.  However, that said, I did not write these
