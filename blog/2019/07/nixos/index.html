@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-06-27 Tue 19:10 -->
+<!-- 2023-06-27 Tue 19:11 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>NixOS</title>
@@ -316,16 +316,16 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orge21c6eb">NixOS</a>
+<li><a href="#orgbbe1c83">NixOS</a>
 <ul>
-<li><a href="#org637ada6">Nix (the package manager)</a></li>
-<li><a href="#org1475050">Nix Store</a></li>
-<li><a href="#orgeff623f">Nix Profiles</a></li>
-<li><a href="#org335da14">System Profiles</a></li>
+<li><a href="#orgfa5b894">Nix (the package manager)</a></li>
+<li><a href="#orgf5f64a6">Nix Store</a></li>
+<li><a href="#orged42308">Nix Profiles</a></li>
+<li><a href="#org794c1fe">System Profiles</a></li>
 </ul>
 </li>
-<li><a href="#org7617b44">Alternatives</a></li>
-<li><a href="#org111d3fe">Impressions and Thoughts</a></li>
+<li><a href="#orgbe64762">Alternatives</a></li>
+<li><a href="#orgf0106cc">Impressions and Thoughts</a></li>
 </ul>
 </div>
 </div>
@@ -338,9 +338,9 @@ about operating systems and software development.
 
 </div>
 
-<div id="outline-container-orge21c6eb" class="outline-2">
-<h2 id="orge21c6eb">NixOS</h2>
-<div class="outline-text-2" id="text-orge21c6eb">
+<div id="outline-container-orgbbe1c83" class="outline-2">
+<h2 id="orgbbe1c83">NixOS</h2>
+<div class="outline-text-2" id="text-orgbbe1c83">
 <p>
 <a href="https://nixos.org/">NixOS</a> is a "functional" <a href="https://www.gnu.org">GNU</a>/<a href="https://www.kernel.org/">Linux</a> distribution
 extending the ideas of functional programming languages to operating systems.
@@ -404,9 +404,9 @@ detour through <a href="https://nixos.org/nix/">Nix</a>, the package manager.
 </p>
 </div>
 
-<div id="outline-container-org637ada6" class="outline-3">
-<h3 id="org637ada6">Nix (the package manager)</h3>
-<div class="outline-text-3" id="text-org637ada6">
+<div id="outline-container-orgfa5b894" class="outline-3">
+<h3 id="orgfa5b894">Nix (the package manager)</h3>
+<div class="outline-text-3" id="text-orgfa5b894">
 <p>
 Beyond the comparisons of language paradigms, there are some other <span class="underline">really</span>
 neat ideas that come from the <a href="https://nixos.org/nix/">Nix</a> family.  Specifically, I want to
@@ -453,9 +453,9 @@ by <code>A</code> is left untouched and package <code>A</code> works just the sa
 </div>
 </div>
 
-<div id="outline-container-org1475050" class="outline-3">
-<h3 id="org1475050">Nix Store</h3>
-<div class="outline-text-3" id="text-org1475050">
+<div id="outline-container-orgf5f64a6" class="outline-3">
+<h3 id="orgf5f64a6">Nix Store</h3>
+<div class="outline-text-3" id="text-orgf5f64a6">
 <p>
 After examining the above example, how does <a href="https://nixos.org/nix/">Nix</a> accomplish this?
 </p>
@@ -558,9 +558,9 @@ the package's inputs.
 </div>
 </div>
 
-<div id="outline-container-orgeff623f" class="outline-3">
-<h3 id="orgeff623f">Nix Profiles</h3>
-<div class="outline-text-3" id="text-orgeff623f">
+<div id="outline-container-orged42308" class="outline-3">
+<h3 id="orged42308">Nix Profiles</h3>
+<div class="outline-text-3" id="text-orged42308">
 <p>
 Packages in <a href="https://nixos.org/nix/">Nix</a> are directory trees found in the <a href="https://nixos.org/nix/">Nix</a> store,
 what are profiles?  Perhaps, more appropriately, what are user environments?
@@ -699,9 +699,9 @@ adversely affected.
 </div>
 </div>
 
-<div id="outline-container-org335da14" class="outline-3">
-<h3 id="org335da14">System Profiles</h3>
-<div class="outline-text-3" id="text-org335da14">
+<div id="outline-container-org794c1fe" class="outline-3">
+<h3 id="org794c1fe">System Profiles</h3>
+<div class="outline-text-3" id="text-org794c1fe">
 <p>
 After user profiles, we are left with system profiles.  What exactly is
 <a href="https://nixos.org/">NixOS</a>?  If any of the above provides any foreshadowing, the answer
@@ -820,9 +820,9 @@ interaction of services and their underlying configuration.
 </div>
 </div>
 
-<div id="outline-container-org7617b44" class="outline-2">
-<h2 id="org7617b44">Alternatives</h2>
-<div class="outline-text-2" id="text-org7617b44">
+<div id="outline-container-orgbe64762" class="outline-2">
+<h2 id="orgbe64762">Alternatives</h2>
+<div class="outline-text-2" id="text-orgbe64762">
 <p>
 Aside from <a href="https://nixos.org/">NixOS</a>, there is also <a href="https://guix.gnu.org/">Guix</a>, a <a href="https://www.gnu.org">GNU</a>
 alternative to <a href="https://nixos.org/nix/">Nix</a> and <a href="https://nixos.org/">NixOS</a>.  Many of the ideas of
@@ -861,9 +861,9 @@ be installed via the software configuration tools.
 </div>
 </div>
 
-<div id="outline-container-org111d3fe" class="outline-2">
-<h2 id="org111d3fe">Impressions and Thoughts</h2>
-<div class="outline-text-2" id="text-org111d3fe">
+<div id="outline-container-orgf0106cc" class="outline-2">
+<h2 id="orgf0106cc">Impressions and Thoughts</h2>
+<div class="outline-text-2" id="text-orgf0106cc">
 <p>
 <a href="https://nixos.org/nix/">Nix</a> and by extension <a href="https://nixos.org/">NixOS</a> (hopefully) solve some really
 annoying problems I tend to keep running into when developing software and
