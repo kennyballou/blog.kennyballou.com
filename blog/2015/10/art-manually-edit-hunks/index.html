@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-06-16 Fri 00:14 -->
+<!-- 2023-06-27 Tue 19:10 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Art of Manually Editing Hunks</title>
@@ -316,9 +316,9 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgf922f05">Short Introduction to Unified Diff</a></li>
-<li><a href="#org007f413">Motivation</a></li>
-<li><a href="#org6613372">Hunk Editing Example</a></li>
+<li><a href="#org56263d6">Short Introduction to Unified Diff</a></li>
+<li><a href="#org30af8d2">Motivation</a></li>
+<li><a href="#org65ae649">Hunk Editing Example</a></li>
 </ul>
 </div>
 </div>
@@ -339,9 +339,9 @@ or <a href="https://www.kernel.org/pub/software/scm/git/docs/git-diff.html">git-
 <code>vimdiff</code>, etc.
 </p>
 
-<div id="outline-container-orgf922f05" class="outline-2">
-<h2 id="orgf922f05">Short Introduction to Unified Diff</h2>
-<div class="outline-text-2" id="text-orgf922f05">
+<div id="outline-container-org56263d6" class="outline-2">
+<h2 id="org56263d6">Short Introduction to Unified Diff</h2>
+<div class="outline-text-2" id="text-org56263d6">
 <p>
 A unified diff may look something similar to (freely copied from the
 <code>diffutils</code> manual):
@@ -415,9 +415,9 @@ applied.
 </div>
 </div>
 
-<div id="outline-container-org007f413" class="outline-2">
-<h2 id="org007f413">Motivation</h2>
-<div class="outline-text-2" id="text-org007f413">
+<div id="outline-container-org30af8d2" class="outline-2">
+<h2 id="org30af8d2">Motivation</h2>
+<div class="outline-text-2" id="text-org30af8d2">
 <p>
 What might be the motivation for even wanting to edit hunk files? The biggest I
 see is when using <code>git-add --patch</code>.  Particularly when the changes run
@@ -449,9 +449,9 @@ no changes are lost.
 </div>
 </div>
 
-<div id="outline-container-org6613372" class="outline-2">
-<h2 id="org6613372">Hunk Editing Example</h2>
-<div class="outline-text-2" id="text-org6613372">
+<div id="outline-container-org65ae649" class="outline-2">
+<h2 id="org65ae649">Hunk Editing Example</h2>
+<div class="outline-text-2" id="text-org65ae649">
 <p>
 Let's walk through an example of staging some changes, and manually editing a
 hunk to stage them into the patches we want.
